@@ -20,6 +20,7 @@ public class UIInventory : MonoBehaviour
     public TextMeshProUGUI selectedItemStatName;
     public TextMeshProUGUI selectedItemStatValue;
     public GameObject useButton;
+    public GameObject consumeButton;
     public GameObject equipButton;
     public GameObject unEquipButton;
     public GameObject dropButton;
@@ -66,6 +67,7 @@ public class UIInventory : MonoBehaviour
         selectedItemStatValue.text = string.Empty;
 
         useButton.SetActive(false);
+        consumeButton.SetActive(false);
         equipButton.SetActive(false);
         unEquipButton.SetActive(false);
         dropButton.SetActive(false);
@@ -182,13 +184,31 @@ public class UIInventory : MonoBehaviour
             selectedItemStatValue.text += selectedItem.consumables[i].value.ToString() + "\n";
         }
 
-        useButton.SetActive(selectedItem.type == ItemType.Consumable);
+        useButton.SetActive(selectedItem.type == ItemType.Useable);
+        consumeButton.SetActive(selectedItem.type == ItemType.Consumable);
         equipButton.SetActive(selectedItem.type == ItemType.Equipable && !slots[index].equipped);
         unEquipButton.SetActive(selectedItem.type == ItemType.Equipable && slots[index].equipped);
         dropButton.SetActive(true);
     }
 
     public void OnUseButton()
+    {
+        if (selectedItem.type == ItemType.Useable)
+        {
+            for (int i = 0; i < selectedItem.useables.Length;i++)
+            {
+                switch(selectedItem.useables[i].type)
+                {
+                    case UseableType.Boost:
+                        condition.Boost();
+                        break;
+                }
+            }
+            RemoveSelctedItem();
+        }
+    }
+
+    public void OnConsumeButton()
     {
         if (selectedItem.type == ItemType.Consumable)
         {
@@ -199,8 +219,6 @@ public class UIInventory : MonoBehaviour
                     case ConsumableType.Health:
                         condition.Heal(selectedItem.consumables[i].value);
                         break;
-                    //case ConsumableType.Invincibility:
-                    //    break;
                 }
             }
             RemoveSelctedItem();

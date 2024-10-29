@@ -15,7 +15,7 @@ public enum ConsumableType
 
 public enum UseableType
 {
-    Invincibility
+    Boost
 }
 
 [System.Serializable]
@@ -29,7 +29,6 @@ public class ItemDataConsumable
 public class ItemDataUseable
 {
     public UseableType type;
-    public float time;
 }
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
