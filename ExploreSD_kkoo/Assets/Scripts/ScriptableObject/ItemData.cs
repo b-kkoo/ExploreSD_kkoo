@@ -3,13 +3,13 @@ using UnityEngine;
 public enum ItemType
 {
     Equipable,
-    Consumable,
-    Usable
+    Consumable
 }
 
 public enum ConsumableType
 {
-    Health
+    Health,
+    Invincibility
 }
 
 [System.Serializable]
