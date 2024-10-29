@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface IDamagable
 {
-    void TakePhysicalDamage(int damageAmount);
+    void TakePhysicalDamage(int damage);
 }
 
 public class PlayerCondition : MonoBehaviour, IDamagable
@@ -35,9 +35,9 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         Debug.Log("플레이어가 죽었다.");
     }
 
-    public void TakePhysicalDamage(int damageAmount)
+    public void TakePhysicalDamage(int damage)
     {
-        health.Subtract(damageAmount);
+        health.Subtract(damage);
         onTakeDamage?.Invoke();
     }
 }
