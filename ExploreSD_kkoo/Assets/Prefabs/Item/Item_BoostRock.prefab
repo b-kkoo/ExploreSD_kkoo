@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6750634048829029162}
   - component: {fileID: 4255911766234688464}
   m_Layer: 7
-  m_Name: Item_Rock
+  m_Name: Item_BoostRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

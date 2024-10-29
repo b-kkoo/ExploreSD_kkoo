@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b522334b5e60f2d44920ced53408ff76, type: 3}
-  m_Name: Item_Rock
+  m_Name: Item_StaminaRock
   m_EditorClassIdentifier: 
-  displayName: "\uB9C8\uBC95\uC758 \uB3CC"
-  description: "\uC0AC\uC6A9\uD558\uBA74 10\uCD08 \uB3D9\uC548 \uC774\uB3D9\uC18D\uB3C4\uAC00
-    \uC99D\uAC00\uD55C\uB2E4."
+  displayName: "\uD65C\uB825\uC758 \uB3CC"
+  description: "\uC0AC\uC6A9\uD558\uBA74 10\uCD08 \uB3D9\uC548 \uC2A4\uD14C\uBBF8\uB108\uB97C
+    \uC18C\uBAA8\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
   type: 2
   icon: {fileID: 21300000, guid: e61976ceaf6919c47853f5a7ea09288b, type: 3}
-  dropPrefab: {fileID: 1278844946709895592, guid: 2dd9d5ed2694e9847b0bb13d448ab190, type: 3}
+  dropPrefab: {fileID: 1278844946709895592, guid: ab216fb8412f3434697d1f71802108d5, type: 3}
   canStack: 1
   maxStackAmount: 5
   consumables: []
   useables:
-  - type: 0
+  - type: 1
   equipPrefab: {fileID: 0}
