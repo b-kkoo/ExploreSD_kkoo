@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     public float jumpPower;
+    public float jumpPanelPower;
     private Vector2 curMovementInput;
     public LayerMask groundLayerMask;
+    public LayerMask jumpPanelLayerMask;
+    bool isJumpPanel;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -25,6 +28,14 @@ public class PlayerController : MonoBehaviour
 
     public Action inventory;
     private Rigidbody _rigidbody;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "JumpPanel")
+        {
+            isJumpPanel = true;
+        }
+    }
 
     private void Awake()
     {
@@ -90,10 +101,18 @@ public class PlayerController : MonoBehaviour
     {
         if(context.phase == InputActionPhase.Started && IsGrounded())
         {
-            if(CharacterManager.Instance.Player.condition.UseStamina(useStamina))
+            if (isJumpPanel)
             {
-                _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
-            }            
+                _rigidbody.AddForce(Vector2.up * jumpPanelPower, ForceMode.Impulse);
+                isJumpPanel = false;
+            }
+            else
+            {
+                if (CharacterManager.Instance.Player.condition.UseStamina(useStamina))
+                {
+                    _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+                }                
+            }
         }
     }
 
@@ -110,6 +129,10 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < rays.Length; i++)
         {
             if (Physics.Raycast(rays[i], 0.1f, groundLayerMask))
+            {
+                return true;
+            }
+            else if (Physics.Raycast(rays[i], 0.1f, jumpPanelLayerMask))
             {
                 return true;
             }
