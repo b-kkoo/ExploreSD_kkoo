@@ -22,7 +22,7 @@ public class EquipTool : Equip
         animator = GetComponent<Animator>();
     }
 
-    public override void OnDashInput()
+    public override void OnAttackInput()
     {
         if (!attacking)
         {

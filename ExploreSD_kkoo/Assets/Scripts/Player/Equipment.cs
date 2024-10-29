@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-using UnityEngine;
-using UnityEngine.InputSystem;
-
 public class Equipment : MonoBehaviour
 {
     public Equip curEquip;
@@ -20,11 +17,11 @@ public class Equipment : MonoBehaviour
         condition = CharacterManager.Instance.Player.condition;
     }
 
-    public void OnDashInput(InputAction.CallbackContext context)
+    public void OnAttackInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed && curEquip != null && controller.canLook)
         {
-            curEquip.OnDashInput();
+            curEquip.OnAttackInput();
         }
     }
 

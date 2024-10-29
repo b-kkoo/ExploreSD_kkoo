@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b522334b5e60f2d44920ced53408ff76, type: 3}
   m_Name: Item_Sword
   m_EditorClassIdentifier: 
-  displayName: "\uC2E0\uC18D\uC758 \uAC80"
-  description: "\uCC29\uC6A9 \uC2DC \uC2E0\uC18D\uC758 \uAC00\uD638\uB97C \uBC1B\uC544
-    \uC774\uB3D9 \uC18D\uB3C4\uAC00 \uB450\uBC30\uAC00 \uB429\uB2C8\uB2E4."
+  displayName: "\uAC80"
+  description: "\uB0A1\uC740 \uAC80"
   type: 0
   icon: {fileID: 21300000, guid: 4f2f320a217307a48a107491b1d17ebb, type: 3}
   dropPrefab: {fileID: 7445654658244174486, guid: 03b315f4791547142b2409a2dcecd767, type: 3}
   canStack: 0
   maxStackAmount: 0
   consumables: []
+  useables: []
   equipPrefab: {fileID: 7548986963863011711, guid: 4202f3209e7902d49a338af4fefc1949, type: 3}

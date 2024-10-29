@@ -1,14 +1,20 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public enum ItemType
 {
     Equipable,
-    Consumable
+    Consumable,
+    Useable
 }
 
 public enum ConsumableType
 {
-    Health,
+    Health
+}
+
+public enum UseableType
+{
     Invincibility
 }
 
@@ -17,6 +23,13 @@ public class ItemDataConsumable
 {
     public ConsumableType type;
     public float value;
+}
+
+[System.Serializable]
+public class ItemDataUseable
+{
+    public UseableType type;
+    public float time;
 }
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
@@ -35,6 +48,9 @@ public class ItemData : ScriptableObject
 
     [Header("Consumable")]
     public ItemDataConsumable[] consumables;
+
+    [Header("Useable")]
+    public ItemDataUseable[] useables;
 
     [Header("Equip")]
     public GameObject equipPrefab;
