@@ -15,7 +15,8 @@ public enum ConsumableType
 
 public enum UseableType
 {
-    Boost
+    Boost,
+    Stamina
 }
 
 [System.Serializable]

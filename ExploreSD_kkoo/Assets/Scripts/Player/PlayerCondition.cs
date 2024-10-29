@@ -10,8 +10,6 @@ public interface IDamagable
 public class PlayerCondition : MonoBehaviour, IDamagable
 {
     public UICondition uiCondition;
-    private Coroutine coroutine;
-
 
     Condition health { get { return uiCondition.health; } }
     Condition stamina { get { return uiCondition.stamina; } }
@@ -36,6 +34,11 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public void Boost()
     {
         StartCoroutine(BoostBuff());
+    }
+
+    public void BuffStamina()
+    {
+        StartCoroutine(StaminaBuff());
     }
 
     public void Die()
@@ -67,5 +70,14 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         CharacterManager.Instance.Player.controller.moveSpeed *= boostBuff;
         yield return new WaitForSeconds(buffDuration);
         CharacterManager.Instance.Player.controller.moveSpeed /= boostBuff;
+    }
+
+    private IEnumerator StaminaBuff()
+    {
+        float buffDuration = 10.0f;
+
+        CharacterManager.Instance.Player.controller.useStamina = 0f;
+        yield return new WaitForSeconds(buffDuration);
+        CharacterManager.Instance.Player.controller.useStamina = 20f;
     }
 }

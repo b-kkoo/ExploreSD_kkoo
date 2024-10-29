@@ -202,6 +202,9 @@ public class UIInventory : MonoBehaviour
                     case UseableType.Boost:
                         condition.Boost();
                         break;
+                    case UseableType.Stamina:
+                        condition.BuffStamina(); 
+                        break;
                 }
             }
             RemoveSelctedItem();
