@@ -6981,7 +6981,7 @@ MonoBehaviour:
   useStamina: 20
   moveSpeed: 5
   jumpPower: 80
-  jumpPanelPower: 240
+  jumpPanelPower: 160
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 55
