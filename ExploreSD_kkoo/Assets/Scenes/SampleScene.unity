@@ -1426,6 +1426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d74f0bc13712984295e6134de3e6590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useStamina: 20
   moveSpeed: 5
   jumpPower: 80
   groundLayerMask:

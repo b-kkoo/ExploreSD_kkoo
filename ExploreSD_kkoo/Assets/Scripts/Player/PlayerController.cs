@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public float useStamina;
+
     [Header("Movement")]
     public float moveSpeed;
     public float jumpPower;
@@ -82,7 +84,10 @@ public class PlayerController : MonoBehaviour
     {
         if(context.phase == InputActionPhase.Started && IsGrounded())
         {
-            _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            if(CharacterManager.Instance.Player.condition.UseStamina(useStamina))
+            {
+                _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            }            
         }
     }
 
